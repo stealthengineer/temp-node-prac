@@ -1,10 +1,14 @@
-const http = require('http')
+const express= require('express')
+const app = express();
 
-const server = http.createServer((req, res) => {
-    console.log('request event')
-    res.end("Hello World!") // Fixed the string syntax and typo
-})
+// req => middleware => res
+    const method = req.method
+    const url = req.url
+    const time = new Date().getFullYear()
+    console.log(method, url, time)
+    res.send('Home')
 
-server.listen(5000, () => {
-    console.log('Server listening on port : 5000....')
-})
+
+app.listen(5000, () => {
+    console.log('server is listening on port 5000...')
+  })
